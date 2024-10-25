@@ -12,3 +12,17 @@ class MyApp extends StatelessWidget {
     return const MaterialApp();
   }
 }
+
+class TestClass extends StatefulWidget {
+  const TestClass({super.key});
+
+  @override
+  State<TestClass> createState() => _TestClassState();
+}
+
+class _TestClassState extends State<TestClass> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
