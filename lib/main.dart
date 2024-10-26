@@ -26,3 +26,11 @@ class _TestClassState extends State<TestClass> {
     return const Placeholder();
   }
 }
+
+class EndpointRest extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+}
