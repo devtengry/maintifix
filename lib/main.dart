@@ -27,10 +27,3 @@ class _TestClassState extends State<TestClass> {
   }
 }
 
-/* class EndpointRest extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
-} */
