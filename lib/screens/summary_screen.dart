@@ -11,6 +11,7 @@ class SummaryScreen extends StatefulWidget {
 
 class _SummaryScreenState extends State<SummaryScreen> {
   String appBarText = 'Here it is...';
+  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(

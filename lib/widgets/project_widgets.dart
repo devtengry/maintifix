@@ -42,9 +42,13 @@ class TextFieldsStyle extends TextField {
       filled: true,
     ),
   );
+
+  TextFieldsStyle({super.key});
 }
 
 class LoginButton extends StatelessWidget {
+  const LoginButton({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -76,6 +80,8 @@ class LoginButton extends StatelessWidget {
 }
 
 class SignupButton extends StatelessWidget {
+  const SignupButton({super.key});
+
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -120,6 +126,8 @@ class SignupButton extends StatelessWidget {
 }
 
 class ResetPasswordButton extends StatelessWidget {
+  const ResetPasswordButton({super.key});
+
   @override
   Widget build(BuildContext context) {
     return TextButton(
