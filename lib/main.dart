@@ -19,14 +19,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class ListVieww extends StatefulWidget {
+  const ListVieww({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<ListVieww> createState() => _ListViewwState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _ListViewwState extends State<ListVieww> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
