@@ -18,17 +18,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-class ListVieww extends StatefulWidget {
-  const ListVieww({super.key});
-
-  @override
-  State<ListVieww> createState() => _ListViewwState();
-}
-
-class _ListViewwState extends State<ListVieww> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
