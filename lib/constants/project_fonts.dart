@@ -19,9 +19,4 @@ class ProjectFonts extends GoogleFonts {
     fontWeight: FontWeight.bold,
     color: ProjectColors.loginScreenTextColor,
   );
-  final testFont = GoogleFonts.poppins(
-    fontSize: 15,
-    fontWeight: FontWeight.w700,
-    color: ProjectColors.loginScreenTextColor,
-  );
 }
