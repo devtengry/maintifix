@@ -21,7 +21,7 @@ class ProjectFonts extends GoogleFonts {
   );
   final testFont = GoogleFonts.poppins(
     fontSize: 15,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     color: ProjectColors.loginScreenTextColor,
   );
 }
