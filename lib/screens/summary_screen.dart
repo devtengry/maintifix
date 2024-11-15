@@ -28,7 +28,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
           toolbarHeight: 100,
         ),
         backgroundColor: Colors.transparent,
-        body: ListTile(),
+        body: const ListTile(),
       ),
     );
   }
