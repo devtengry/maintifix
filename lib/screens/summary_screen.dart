@@ -33,3 +33,16 @@ class _SummaryScreenState extends State<SummaryScreen> {
     );
   }
 }
+
+class Solution {
+  int majorityElement(List<int> nums) {
+    int result = 1;
+
+    for (var num in nums) {
+      result ^= num;
+      for (var numR in nums) {}
+    }
+
+    return result;
+  }
+}
