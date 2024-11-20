@@ -1,1 +1,3 @@
 class FirebaseAuth {}
+
+class FireBaseTest {}
