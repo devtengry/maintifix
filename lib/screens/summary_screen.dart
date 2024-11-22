@@ -19,6 +19,7 @@ class _SummaryScreenState extends State<SummaryScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           elevation: 0,
           title: Text(
             appBarText,
@@ -26,10 +27,19 @@ class _SummaryScreenState extends State<SummaryScreen> {
           ),
           backgroundColor: ProjectColors.summaryAppBarColor,
           toolbarHeight: 100,
+          actions: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.logout_outlined))
+          ],
         ),
         backgroundColor: Colors.transparent,
-        body: const ListTile(
-          enabled: true,
+        body: Scaffold(
+          backgroundColor: Colors.transparent,
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: ProjectColors.buttonColor,
+            shape: CircleBorder(),
+            onPressed: () {},
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         ),
       ),
     );
