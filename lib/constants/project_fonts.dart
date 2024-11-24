@@ -8,7 +8,7 @@ class ProjectFonts extends GoogleFonts {
   final headerFont = GoogleFonts.poppins(
     fontSize: 30,
     fontWeight: FontWeight.w700,
-    color: ProjectColors.loginScreenTextColor,
+    color: ProjectColors.textColor,
   );
   final paragraphFont = GoogleFonts.poppins(
     fontSize: 15,
@@ -17,6 +17,11 @@ class ProjectFonts extends GoogleFonts {
   final buttonFont = GoogleFonts.poppins(
     fontSize: 15,
     fontWeight: FontWeight.bold,
-    color: ProjectColors.loginScreenTextColor,
+    color: ProjectColors.textColor,
+  );
+  final cardFont = GoogleFonts.poppins(
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
+    color: ProjectColors.textColor,
   );
 }

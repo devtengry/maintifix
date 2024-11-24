@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   ],
                   borderRadius: BorderRadius.circular(15),
-                  color: ProjectColors.loginScreenContainerColor,
+                  color: ProjectColors.containerColor,
                 ),
                 width: screenWidth * 0.90,
                 height: screenHeight * 0.50,
@@ -74,11 +74,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       margin: const EdgeInsets.only(top: 20),
                     ),
-                    LoginButton(),
+                    const LoginButton(),
                     const Padding(
                       padding: EdgeInsets.only(top: 10),
                     ),
-                    Row(
+                    const Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [

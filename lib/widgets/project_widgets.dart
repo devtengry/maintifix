@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:maintifix/constants/project_colors.dart';
 import 'package:maintifix/constants/project_fonts.dart';
 import 'package:maintifix/constants/project_text_styles.dart';
@@ -20,7 +19,7 @@ class TextFieldsStyle extends TextField {
         Icons.person_outline,
         color: Color.fromARGB(73, 220, 208, 191),
       ),
-      fillColor: ProjectColors.loginTextFieldColor,
+      fillColor: ProjectColors.textFieldColor,
       filled: true,
     ),
   );
@@ -38,7 +37,7 @@ class TextFieldsStyle extends TextField {
         Icons.key_outlined,
         color: Color.fromARGB(73, 220, 208, 191),
       ),
-      fillColor: ProjectColors.loginTextFieldColor,
+      fillColor: ProjectColors.textFieldColor,
       filled: true,
     ),
   );
@@ -107,8 +106,7 @@ class SignupButton extends StatelessWidget {
                     },
                     child: const Text(
                       'Close',
-                      style:
-                          TextStyle(color: ProjectColors.loginScreenTextColor),
+                      style: TextStyle(color: ProjectColors.textColor),
                     ),
                   ),
                 ],
@@ -153,8 +151,7 @@ class ResetPasswordButton extends StatelessWidget {
                     },
                     child: const Text(
                       'Close',
-                      style:
-                          TextStyle(color: ProjectColors.loginScreenTextColor),
+                      style: TextStyle(color: ProjectColors.textColor),
                     ),
                   ),
                 ],
@@ -169,4 +166,107 @@ class ResetPasswordButton extends StatelessWidget {
       ),
     );
   }
+}
+
+class FloatingButton extends StatelessWidget {
+  const FloatingButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      backgroundColor: ProjectColors.buttonColor,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+        side: BorderSide(
+          color: ProjectColors.buttonColor,
+          width: 0.5,
+        ),
+      ),
+      child: const Icon(
+        Icons.add_to_photos_sharp,
+        color: ProjectColors.iconColor,
+        size: 30,
+      ),
+      onPressed: () {},
+    );
+  }
+}
+
+class BottomAppBarFloating extends StatelessWidget {
+  const BottomAppBarFloating({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        color: ProjectColors.bottomNavBarColor,
+      ),
+      margin: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+      child: BottomAppBar(
+        notchMargin: 2.0,
+        padding: const EdgeInsets.only(right: 50, left: 50),
+        color: Colors.transparent,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                icon: const Icon(
+                  Icons.car_repair,
+                  color: ProjectColors.iconColor,
+                  size: 25,
+                ),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.settings_outlined,
+                  color: ProjectColors.iconColor,
+                  size: 25,
+                ),
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ProjectAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const ProjectAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    const String appBarText = 'Here it is...';
+
+    return AppBar(
+      automaticallyImplyLeading: false,
+      elevation: 0,
+      title: Text(
+        appBarText,
+        style: ProjectTextStyle.appBarTextStyle,
+      ),
+      backgroundColor: ProjectColors.appBarColor,
+      toolbarHeight: 100,
+      actions: [
+        IconButton(
+          onPressed: () {
+            // Action when the icon is pressed
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            size: 28,
+          ),
+          color: ProjectColors.textColor,
+        ),
+      ],
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(80); // Height of the AppBar
 }

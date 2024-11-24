@@ -4,14 +4,14 @@ import 'package:maintifix/constants/project_colors.dart';
 
 class ProjectTextStyle extends GoogleFonts {
   static var loginHeaderStyle = GoogleFonts.poppins(
-    color: ProjectColors.loginScreenTextColor,
+    color: ProjectColors.textColor,
     fontSize: 25,
     fontStyle: FontStyle.italic,
     fontWeight: FontWeight.w900,
   );
 
   static var textFiledHeaderStyle = GoogleFonts.poppins(
-    color: ProjectColors.loginScreenTextColor,
+    color: ProjectColors.textColor,
   );
   static var textFieldHintStyle = GoogleFonts.poppins(
     color: const Color.fromARGB(146, 220, 208, 191),
@@ -19,8 +19,8 @@ class ProjectTextStyle extends GoogleFonts {
 
   static var loginTextButtonStlyle = GoogleFonts.poppins(
     fontStyle: FontStyle.italic,
-    color: ProjectColors.loginScreenTextColor,
+    color: ProjectColors.textColor,
   );
   static var appBarTextStyle = GoogleFonts.poppins(
-      color: ProjectColors.loginScreenTextColor, fontWeight: FontWeight.bold);
+      color: ProjectColors.textColor, fontWeight: FontWeight.bold);
 }

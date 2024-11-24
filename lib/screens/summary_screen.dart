@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:maintifix/constants/project_colors.dart';
-import 'package:maintifix/constants/project_text_styles.dart';
+import 'package:maintifix/constants/project_fonts.dart';
+import 'package:maintifix/widgets/project_widgets.dart';
 
 class SummaryScreen extends StatefulWidget {
   const SummaryScreen({super.key});
@@ -10,7 +11,6 @@ class SummaryScreen extends StatefulWidget {
 }
 
 class _SummaryScreenState extends State<SummaryScreen> {
-  String appBarText = 'Here it is...';
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,73 +18,53 @@ class _SummaryScreenState extends State<SummaryScreen> {
         gradient: ProjectGradientColors.summaryScreenBackroundColor,
       ),
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          elevation: 0,
-          title: Text(
-            appBarText,
-            style: ProjectTextStyle.appBarTextStyle,
-          ),
-          backgroundColor: ProjectColors.summaryAppBarColor,
-          toolbarHeight: 100,
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.arrow_back),
-              color: ProjectColors.loginScreenTextColor,
-            )
-          ],
-        ),
         backgroundColor: Colors.transparent,
-        body: Scaffold(
-          backgroundColor: Colors.transparent,
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: ProjectColors.buttonColor,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              side: BorderSide(
-                color: ProjectColors.floatingActionButtonColor,
-                width: 0.5,
+        appBar: const ProjectAppBar(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: const FloatingButton(),
+        bottomNavigationBar: const BottomAppBarFloating(),
+        body: ListView(
+          controller: ScrollController(),
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 20, right: 20, bottom: 10, top: 10),
+              child: Card(
+                color: ProjectColors.cardColor,
+                child: SizedBox(
+                  height: 200,
+                  width: 500,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      const Icon(
+                        Icons.tire_repair_rounded,
+                        size: 80,
+                        color: ProjectColors.iconColor,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Name: Tires',
+                            style: ProjectFonts().cardFont,
+                          ),
+                          Text(
+                            'Maintifix Date: 23.11.2024',
+                            style: ProjectFonts().cardFont,
+                          ),
+                          Text(
+                            'Next Maintifix: 23.11.2024',
+                            style: ProjectFonts().cardFont,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
-            child: const Icon(
-              Icons.add_to_photos_sharp,
-              color: ProjectColors.floatingIconColor,
-              size: 30,
-            ),
-            onPressed: () {},
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          bottomNavigationBar: BottomAppBar(
-            shape: const CircularNotchedRectangle(),
-            notchMargin: 8.0,
-            color: ProjectColors.bottomNavBarColor,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.car_repair,
-                      color: ProjectColors.bottomNavIconColor,
-                      size: 25,
-                    ),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: const Icon(
-                      Icons.settings_outlined,
-                      color: ProjectColors.bottomNavIconColor,
-                      size: 25,
-                    ),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            ),
-          ),
+          ],
         ),
       ),
     );
