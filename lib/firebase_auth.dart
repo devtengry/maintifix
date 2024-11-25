@@ -1,3 +1,0 @@
-class FirebaseAuth {}
-
-class FireBaseTest {}

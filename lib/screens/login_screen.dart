@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:maintifix/constants/project_colors.dart';
-import 'package:maintifix/constants/project_text_styles.dart';
-import 'package:maintifix/widgets/project_widgets.dart';
+import 'package:maintifix/constants/colors/project_colors.dart';
+import 'package:maintifix/constants/fonts/project_text_styles.dart';
+import 'package:maintifix/widgets/login_widgets/login_button.dart';
+import 'package:maintifix/widgets/login_widgets/reset_password_button.dart';
+import 'package:maintifix/widgets/login_widgets/sign_up_button.dart';
+import 'package:maintifix/widgets/login_widgets/text_fields.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

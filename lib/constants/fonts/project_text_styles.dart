@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:maintifix/constants/project_colors.dart';
+import 'package:maintifix/constants/colors/project_colors.dart';
 
 class ProjectTextStyle extends GoogleFonts {
   static var loginHeaderStyle = GoogleFonts.poppins(

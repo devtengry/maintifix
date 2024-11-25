@@ -7,7 +7,7 @@ class ProjectColors extends Color {
   static const buttonColor = Color.fromARGB(255, 63, 87, 72);
   static const iconColor = Color.fromARGB(255, 220, 208, 191);
   static const bottomNavBarColor = Color.fromARGB(255, 17, 40, 40);
-  static const cardColor = Color.fromARGB(255, 17, 40, 40);
+  static const cardColor = Color.fromARGB(183, 17, 40, 40);
   static const appBarColor = Color.fromARGB(255, 26, 54, 54);
   static const summaryScreenBackroundColor = Color.fromARGB(255, 64, 83, 76);
 
@@ -39,6 +39,7 @@ class ProjectGradientColors extends LinearGradient {
 
   static const summaryScreenBackroundColor = LinearGradient(
     colors: [
+      Color(0xFF677D6A),
       Color(0xFF40534C),
       Color(0xFF1A3636),
     ],

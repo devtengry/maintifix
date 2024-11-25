@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:maintifix/constants/project_colors.dart';
-import 'package:maintifix/constants/project_fonts.dart';
-import 'package:maintifix/widgets/project_widgets.dart';
+import 'package:maintifix/constants/colors/project_colors.dart';
+import 'package:maintifix/constants/fonts/project_fonts.dart';
+import 'package:maintifix/widgets/card_widgets/card_design.dart';
+import 'package:maintifix/widgets/general_widgets/app_bar.dart';
+import 'package:maintifix/widgets/general_widgets/floating_button.dart';
+import 'package:maintifix/widgets/general_widgets/floating_app_bar.dart';
 
 class SummaryScreen extends StatefulWidget {
   const SummaryScreen({super.key});
@@ -26,43 +29,11 @@ class _SummaryScreenState extends State<SummaryScreen> {
         body: ListView(
           controller: ScrollController(),
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 20, right: 20, bottom: 10, top: 10),
-              child: Card(
-                color: ProjectColors.cardColor,
-                child: SizedBox(
-                  height: 200,
-                  width: 500,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const Icon(
-                        Icons.tire_repair_rounded,
-                        size: 80,
-                        color: ProjectColors.iconColor,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Name: Tires',
-                            style: ProjectFonts().cardFont,
-                          ),
-                          Text(
-                            'Maintifix Date: 23.11.2024',
-                            style: ProjectFonts().cardFont,
-                          ),
-                          Text(
-                            'Next Maintifix: 23.11.2024',
-                            style: ProjectFonts().cardFont,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+            CardDesign(
+              icon: Icons.car_crash,
+              maintifixDate: '25.11.2024',
+              nextMaintifix: '25.11.2025',
+              name: 'tire',
             ),
           ],
         ),
