@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "818650449509",
+    "project_id": "maintifix-auth",
+    "storage_bucket": "maintifix-auth.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818650449509:android:daea3fb3be5b9f4293688c",
+        "android_client_info": {
+          "package_name": "com.devtengry.maintifix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN0YHFm86AKSQLdOiN25sDBOncyB43k_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
