@@ -14,10 +14,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
 
     return Container(
       decoration: const BoxDecoration(
@@ -64,7 +68,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: ProjectTextStyle.textFiledHeaderStyle,
                       ),
                     ),
-                    TextFieldsStyle().usernameTextField,
+                    MailTextFieldsStyle(emailController: emailController)
+                        .usernameTextField,
                     Container(
                       margin: const EdgeInsets.only(
                           right: 250, bottom: 10, top: 10),
@@ -73,7 +78,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: ProjectTextStyle.textFiledHeaderStyle,
                       ),
                     ),
-                    TextFieldsStyle().passwordTextField,
+                    PasswordTextFieldsStyle(
+                            passwordController: passwordController)
+                        .passwordTextField,
                     Container(
                       margin: const EdgeInsets.only(top: 20),
                     ),
