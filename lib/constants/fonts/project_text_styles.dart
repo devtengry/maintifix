@@ -16,6 +16,10 @@ class ProjectTextStyle extends GoogleFonts {
   static var textFieldHintStyle = GoogleFonts.poppins(
     color: const Color.fromARGB(146, 220, 208, 191),
   );
+  static var textFieldStyle = GoogleFonts.poppins(
+    fontSize: 15,
+    color: ProjectColors.textColor,
+  );
 
   static var loginTextButtonStlyle = GoogleFonts.poppins(
     fontStyle: FontStyle.italic,

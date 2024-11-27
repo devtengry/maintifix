@@ -58,9 +58,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: ProjectTextStyle.loginHeaderStyle,
                     ),
                     Container(
-                      margin: const EdgeInsets.only(right: 250, bottom: 10),
+                      margin: const EdgeInsets.only(right: 270, bottom: 10),
                       child: Text(
-                        'Username',
+                        'E-Mail',
                         style: ProjectTextStyle.textFiledHeaderStyle,
                       ),
                     ),
