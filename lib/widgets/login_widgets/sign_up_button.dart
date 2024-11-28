@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:maintifix/constants/colors/project_colors.dart';
 import 'package:maintifix/constants/fonts/project_text_styles.dart';
 
-class SignupButton extends StatelessWidget {
-  const SignupButton({super.key});
+class RegisterButton extends StatelessWidget {
+  const RegisterButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class SignupButton extends StatelessWidget {
         );
       },
       child: Text(
-        'Sign Up',
+        'Register',
         style: ProjectTextStyle.loginTextButtonStlyle,
       ),
     );

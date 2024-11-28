@@ -1,6 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:maintifix/constants/colors/project_colors.dart';
+import 'package:maintifix/constants/fonts/project_fonts.dart';
 import 'package:maintifix/constants/fonts/project_text_styles.dart';
+import 'package:maintifix/screens/summary_screen.dart';
+import 'package:maintifix/services/auth.dart';
 import 'package:maintifix/widgets/login_widgets/login_button.dart';
 import 'package:maintifix/widgets/login_widgets/reset_password_button.dart';
 import 'package:maintifix/widgets/login_widgets/sign_up_button.dart';
@@ -16,6 +20,44 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late TextEditingController emailController;
   late TextEditingController passwordController;
+  String? errorMessage;
+  bool isLogin = true;
+
+  Future<void> createUser() async {
+    try {
+      await Auth().createUser(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+  }
+
+  Future<void> signIn() async {
+    try {
+      await Auth().signIn(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+
+      // Eğer giriş başarılı olursa yönlendirme işlemi yapılır.
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const SummaryScreen(),
+        ),
+      );
+    } on FirebaseAuthException catch (e) {
+      // Hata mesajını göstermek için.
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -84,16 +126,67 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       margin: const EdgeInsets.only(top: 20),
                     ),
-                    const LoginButton(),
+
+                    /// geçici************************************************************
+                    SizedBox(
+                      height: 50,
+                      width: 500,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStateProperty.all<Color>(
+                              ProjectColors.buttonColor),
+                          shape:
+                              WidgetStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                        ),
+                        onPressed: () {
+                          if (isLogin) {
+                            signIn();
+                          } else {
+                            createUser();
+                          }
+                        },
+                        child: isLogin
+                            ? Text(
+                                'Login',
+                                style: ProjectFonts().buttonFont,
+                              )
+                            : Text(
+                                'Register',
+                                style: ProjectFonts().buttonFont,
+                              ),
+                      ),
+                    ),
+                    errorMessage != null
+                        ? Text(errorMessage!)
+                        : const SizedBox.shrink(),
+
+                    /// geçici************************************************************
+
                     const Padding(
                       padding: EdgeInsets.only(top: 10),
                     ),
-                    const Row(
+                    Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        SignupButton(),
-                        ResetPasswordButton(),
+                        //RegisterButton(),
+                        TextButton(
+                          onPressed: () {
+                            setState(() {
+                              isLogin = !isLogin; // Durumu değiştirir.
+                            });
+                          },
+                          child: Text(
+                            'Register',
+                            style: ProjectTextStyle.loginTextButtonStlyle,
+                          ),
+                        ),
+
+                        const AboutUsButton(),
                       ],
                     ),
                   ],

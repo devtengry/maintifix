@@ -22,7 +22,7 @@ class ProjectTextStyle extends GoogleFonts {
   );
 
   static var loginTextButtonStlyle = GoogleFonts.poppins(
-    fontStyle: FontStyle.italic,
+    fontStyle: FontStyle.normal,
     color: ProjectColors.textColor,
   );
   static var appBarTextStyle = GoogleFonts.poppins(
