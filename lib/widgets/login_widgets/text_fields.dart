@@ -66,3 +66,30 @@ class PasswordTextFieldsStyle {
     );
   }
 }
+
+class NameTextFieldsStyle {
+  late final TextField nameTextField;
+
+  NameTextFieldsStyle() {
+    nameTextField = TextField(
+      style: ProjectTextStyle.textFieldStyle,
+      obscureText: true,
+      decoration: InputDecoration(
+        hintText: 'Password',
+        hintStyle: ProjectTextStyle.textFieldHintStyle,
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(15),
+          ),
+          borderSide: BorderSide.none,
+        ),
+        prefixIcon: const Icon(
+          Icons.key_outlined,
+          color: Color.fromARGB(73, 220, 208, 191),
+        ),
+        fillColor: ProjectColors.textFieldColor,
+        filled: true,
+      ),
+    );
+  }
+}
