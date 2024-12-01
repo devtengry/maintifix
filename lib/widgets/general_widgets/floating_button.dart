@@ -39,7 +39,7 @@ class FloatingButton extends StatelessWidget {
                   ),
                   color: const Color.fromARGB(255, 17, 40, 40),
                 ),
-                child: Center(
+                child: const Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,

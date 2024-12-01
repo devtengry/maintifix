@@ -93,3 +93,5 @@ class NameTextFieldsStyle {
     );
   }
 }
+
+class ClassName {}
