@@ -81,7 +81,7 @@ class TestComponent extends StatelessWidget {
           Positioned.fill(
               top: 100,
               bottom: 500,
-              left: 20,
+              left: 1,
               right: 20,
               child: Container(
                 color: const Color.fromARGB(255, 200, 188, 152),
