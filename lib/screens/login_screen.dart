@@ -23,15 +23,33 @@ class _LoginScreenState extends State<LoginScreen> {
   String? errorMessage;
   bool isLogin = true;
 
+  @override
+  void initState() {
+    super.initState();
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   Future<void> createUser() async {
     try {
       await Auth().createUser(
-        email: emailController.text,
-        password: passwordController.text,
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
-    } on FirebaseAuthException catch (e) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const SummaryScreen()),
+      );
+    } on Exception catch (e) {
       setState(() {
-        errorMessage = e.message;
+        errorMessage = e.toString();
       });
     }
   }
@@ -39,21 +57,16 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> signIn() async {
     try {
       await Auth().signIn(
-        email: emailController.text,
-        password: passwordController.text,
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
-
-      // Eğer giriş başarılı olursa yönlendirme işlemi yapılır.
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-          builder: (context) => const SummaryScreen(),
-        ),
+        MaterialPageRoute(builder: (context) => const SummaryScreen()),
       );
-    } on FirebaseAuthException catch (e) {
-      // Hata mesajını göstermek için.
+    } on Exception catch (e) {
       setState(() {
-        errorMessage = e.message;
+        errorMessage = e.toString();
       });
     }
   }
@@ -62,8 +75,6 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    emailController = TextEditingController();
-    passwordController = TextEditingController();
 
     return Container(
       decoration: const BoxDecoration(
@@ -73,7 +84,6 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.transparent,
         body: Center(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
@@ -92,19 +102,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 width: screenWidth * 0.90,
                 height: screenHeight * 0.50,
-                padding: const EdgeInsets.only(
-                  left: 15,
-                  right: 15,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Maintifix',
-                      style: ProjectTextStyle.loginHeaderStyle,
-                    ),
+                    Text('Maintifix', style: ProjectTextStyle.loginHeaderStyle),
+                    // Email Text Field
                     Container(
-                      margin: const EdgeInsets.only(right: 270, bottom: 10),
+                      alignment: Alignment.centerLeft,
+                      margin: const EdgeInsets.only(bottom: 10),
                       child: Text(
                         'E-Mail',
                         style: ProjectTextStyle.textFiledHeaderStyle,
@@ -112,80 +118,64 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     MailTextFieldsStyle(emailController: emailController)
                         .usernameTextField,
+                    // Password Text Field
                     Container(
-                      margin: const EdgeInsets.only(
-                          right: 250, bottom: 10, top: 10),
+                      alignment: Alignment.centerLeft,
+                      margin: const EdgeInsets.only(top: 10, bottom: 10),
                       child: Text(
                         'Password',
                         style: ProjectTextStyle.textFiledHeaderStyle,
                       ),
                     ),
                     PasswordTextFieldsStyle(
-                            passwordController: passwordController)
-                        .passwordTextField,
-                    Container(
-                      margin: const EdgeInsets.only(top: 20),
-                    ),
-
-                    /// geçici************************************************************
+                      passwordController: passwordController,
+                    ).passwordTextField,
+                    // Login/Register Button
+                    const SizedBox(height: 20),
                     SizedBox(
                       height: 50,
                       width: 500,
                       child: ElevatedButton(
                         style: ButtonStyle(
-                          backgroundColor: WidgetStateProperty.all<Color>(
+                          backgroundColor: MaterialStateProperty.all<Color>(
                               ProjectColors.buttonColor),
                           shape:
-                              WidgetStateProperty.all<RoundedRectangleBorder>(
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
                           ),
                         ),
-                        onPressed: () {
-                          if (isLogin) {
-                            signIn();
-                          } else {
-                            createUser();
-                          }
-                        },
-                        child: isLogin
-                            ? Text(
-                                'Login',
-                                style: ProjectFonts().buttonFont,
-                              )
-                            : Text(
-                                'Register',
-                                style: ProjectFonts().buttonFont,
-                              ),
+                        onPressed: isLogin ? signIn : createUser,
+                        child: Text(
+                          isLogin ? 'Login' : 'Register',
+                          style: ProjectFonts().buttonFont,
+                        ),
                       ),
                     ),
-                    errorMessage != null
-                        ? Text(errorMessage!)
-                        : const SizedBox.shrink(),
-
-                    /// geçici************************************************************
-
-                    const Padding(
-                      padding: EdgeInsets.only(top: 10),
-                    ),
+                    if (errorMessage != null)
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          errorMessage!,
+                          style: const TextStyle(color: Colors.red),
+                        ),
+                      ),
+                    // Toggle Between Login and Register
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        //RegisterButton(),
                         TextButton(
                           onPressed: () {
                             setState(() {
-                              isLogin = !isLogin; // Durumu değiştirir.
+                              isLogin = !isLogin;
                             });
                           },
                           child: Text(
-                            'Register',
+                            isLogin ? 'Register' : 'Login',
                             style: ProjectTextStyle.loginTextButtonStlyle,
                           ),
                         ),
-
                         const AboutUsButton(),
                       ],
                     ),
