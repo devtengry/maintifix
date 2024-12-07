@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:maintifix/constants/colors/project_colors.dart';
-import 'package:maintifix/constants/fonts/project_fonts.dart';
-import 'package:intl/intl.dart'; // Import intl for formatting
+import 'package:intl/intl.dart';
+
+import '../../constants/fonts/project_fonts.dart';
+import '../../constants/theme/project_colors.dart';
 
 class CardDesign extends StatelessWidget {
   final String maintifixDate;
@@ -10,7 +11,7 @@ class CardDesign extends StatelessWidget {
   final String name;
   final IconData icon;
 
-  CardDesign({
+  const CardDesign({
     super.key,
     required this.icon,
     required this.maintifixDate,

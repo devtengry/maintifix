@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:maintifix/constants/colors/project_colors.dart';
+
+import '../../constants/theme/project_colors.dart';
 
 class BottomAppBarFloating extends StatelessWidget {
   const BottomAppBarFloating({super.key});

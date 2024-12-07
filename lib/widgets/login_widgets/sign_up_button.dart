@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:maintifix/constants/colors/project_colors.dart';
-import 'package:maintifix/constants/fonts/project_text_styles.dart';
+
+import '../../constants/fonts/project_text_styles.dart';
+import '../../constants/theme/project_colors.dart';
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({super.key});

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:maintifix/constants/colors/project_colors.dart';
-import 'package:maintifix/constants/fonts/project_fonts.dart';
-import 'package:maintifix/screens/summary_screen.dart';
+
+import '../../constants/fonts/project_fonts.dart';
+import '../../constants/theme/project_colors.dart';
+import '../../screens/home_screen/home_screen.dart';
 
 class LoginButton extends StatefulWidget {
   const LoginButton({super.key});

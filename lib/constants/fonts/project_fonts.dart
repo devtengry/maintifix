@@ -1,8 +1,6 @@
-import 'dart:ui';
-
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:maintifix/constants/colors/project_colors.dart';
+import 'package:maintifix/constants/theme/project_colors.dart';
 
 class ProjectFonts extends GoogleFonts {
   final headerFont = GoogleFonts.poppins(

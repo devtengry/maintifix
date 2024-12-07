@@ -1,14 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:maintifix/constants/colors/project_colors.dart';
-import 'package:maintifix/constants/fonts/project_fonts.dart';
-import 'package:maintifix/constants/fonts/project_text_styles.dart';
-import 'package:maintifix/screens/summary_screen.dart';
-import 'package:maintifix/services/auth.dart';
-import 'package:maintifix/widgets/login_widgets/login_button.dart';
-import 'package:maintifix/widgets/login_widgets/reset_password_button.dart';
-import 'package:maintifix/widgets/login_widgets/sign_up_button.dart';
-import 'package:maintifix/widgets/login_widgets/text_fields.dart';
+
+import '../../constants/fonts/project_fonts.dart';
+import '../../constants/fonts/project_text_styles.dart';
+import '../../constants/theme/project_colors.dart';
+import '../../services/firebase/auth.dart';
+import '../../widgets/inputs/text_fields.dart';
+import '../../widgets/login_widgets/reset_password_button.dart';
+import '../home_screen/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -137,10 +135,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 500,
                       child: ElevatedButton(
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
+                          backgroundColor: WidgetStateProperty.all<Color>(
                               ProjectColors.buttonColor),
                           shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                              WidgetStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
