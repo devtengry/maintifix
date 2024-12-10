@@ -29,40 +29,43 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),
           ),
-          color: const Color.fromARGB(255, 17, 40, 40),
+          color: const Color(0xFF1E293B),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            // Maintenance Selector
-            MaintenanceSelector(
-              onChanged: (value) => selectedMaintenance = value,
-            ),
-            const SizedBox(height: 20),
-            // Date Range Picker
-            DateRangePicker(
-              onDateSelected: (range) => selectedDateRange = range,
-            ),
-            const SizedBox(height: 20),
-            // Time Picker
-            TimePicker(
-              onTimeSelected: (time) => selectedTime = time,
-            ),
-            const Spacer(),
-            // Save Button
-            SaveButton(
-              onSave: () {
-                if (selectedMaintenance != null &&
-                    selectedDateRange != null &&
-                    selectedTime != null) {
-                  widget.onSave(
-                      selectedMaintenance!, selectedDateRange!, selectedTime!);
-                  Navigator.pop(context);
-                }
-              },
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              // Maintenance Selector
+              MaintenanceSelector(
+                onChanged: (value) => selectedMaintenance = value,
+              ),
+              const SizedBox(height: 20),
+              // Date Range Picker
+              DateRangePicker(
+                onDateSelected: (range) => selectedDateRange = range,
+              ),
+              const SizedBox(height: 20),
+              // Time Picker
+              TimePicker(
+                onTimeSelected: (time) => selectedTime = time,
+              ),
+              const Spacer(),
+              // Save Button
+              SaveButton(
+                onSave: () {
+                  if (selectedMaintenance != null &&
+                      selectedDateRange != null &&
+                      selectedTime != null) {
+                    widget.onSave(selectedMaintenance!, selectedDateRange!,
+                        selectedTime!);
+                    Navigator.pop(context);
+                  }
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
