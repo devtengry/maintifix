@@ -42,7 +42,8 @@ app.*.map.json
 /android/app/profile/*
 /android/app/release/*
 
-# Firebase Options dahil etmek için istisna
-!/android/app/debug/firebase_options.dart
-!/android/app/profile/firebase_options.dart
-!/android/app/release/firebase_options.dart
+# Firebase Options dosyalarını gizle
+**/firebase_options.dart
+
+# Environment dosyalarını gizle
+.env
