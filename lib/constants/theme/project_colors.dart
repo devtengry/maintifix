@@ -11,6 +11,10 @@ class ProjectColors extends Color {
   static const appBarColor = Color.fromARGB(255, 51, 65, 85);
   static const summaryScreenBackroundColor = Color.fromARGB(255, 64, 83, 76);
 
+  static var primaryTextColor;
+
+  static var logoutButtonColor;
+
   ProjectColors(super.value);
 }
 
@@ -22,8 +26,8 @@ class ProjectGradientColors extends LinearGradient {
       /*  Color(0xFFF8FAFC),
       Color(0xFFF1F5F9),
       Color(0xFFE2E8F0),
-      Color(0xFFCBD5E1), */
-      Color(0xFF94A3B8),
+      Color(0xFFCBD5E1), 
+      Color(0xFF94A3B8),*/
       Color(0xFF64748B),
       Color(0xFF475569),
       Color(0xFF334155),
@@ -57,4 +61,6 @@ class ProjectGradientColors extends LinearGradient {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
+
+  static var settingsScreenBackgroundColor;
 }
