@@ -52,6 +52,12 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions();
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyDN0YHFm86AKSQLdOiN25sDBOncyB43k_o',
+    appId: '1:818650449509:android:daea3fb3be5b9f4293688c',
+    messagingSenderId: '818650449509',
+    projectId: 'maintifix-auth',
+    storageBucket: 'maintifix-auth.firebasestorage.app',
+  );
 }
 //asdasdsa
