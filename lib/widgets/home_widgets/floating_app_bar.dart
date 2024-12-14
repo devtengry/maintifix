@@ -28,7 +28,9 @@ class BottomAppBarFloating extends StatelessWidget {
                   color: ProjectColors.iconColor,
                   size: 25,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed('/home');
+                },
               ),
               IconButton(
                 icon: const Icon(
@@ -36,7 +38,9 @@ class BottomAppBarFloating extends StatelessWidget {
                   color: ProjectColors.iconColor,
                   size: 25,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed('/settings');
+                },
               ),
             ],
           ),

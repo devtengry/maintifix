@@ -26,5 +26,5 @@ class ProjectTextStyle extends GoogleFonts {
     color: ProjectColors.textColor,
   );
   static var appBarTextStyle = GoogleFonts.poppins(
-      color: ProjectColors.textColor, fontWeight: FontWeight.bold);
+      color: ProjectColors.textColor, fontWeight: FontWeight.w500);
 }

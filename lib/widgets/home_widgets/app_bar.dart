@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/fonts/project_text_styles.dart';
@@ -8,7 +10,7 @@ class ProjectAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String appBarText = 'Here it is...';
+    const String appBarText = 'Mantifix';
 
     return AppBar(
       automaticallyImplyLeading: false,
@@ -21,11 +23,14 @@ class ProjectAppBar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: 100,
       actions: [
         IconButton(
-          onPressed: () {
-            // Action when the icon is pressed
+          onPressed: () async {
+            try {
+              await FirebaseAuth.instance.signOut();
+              Navigator.of(context).pushReplacementNamed('/login');
+            } catch (e) {}
           },
           icon: const Icon(
-            Icons.arrow_back,
+            Icons.logout_rounded,
             size: 28,
           ),
           color: ProjectColors.textColor,
