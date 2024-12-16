@@ -12,12 +12,11 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(const MyApp());
+  runApp(const MaintifixApp());
 }
 
-//test
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MaintifixApp extends StatelessWidget {
+  const MaintifixApp({super.key});
 
   @override
   Widget build(BuildContext context) {
