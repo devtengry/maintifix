@@ -34,4 +34,3 @@ class MaintifixApp extends StatelessWidget {
     );
   }
 }
-//e mail and device notifications needed to be implemented
