@@ -6,6 +6,8 @@ import 'package:maintifix/constants/theme/project_colors.dart';
 import 'package:maintifix/widgets/home_widgets/floating_app_bar.dart';
 
 class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({super.key});
+
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
 }
